@@ -1,0 +1,22 @@
+.padding-left-16 {
+  padding-left: 16px;
+}
+.primary-color {
+  background-color: #2a77e4;
+}
+.font-white {
+  color: white;
+}
+.cover-photo {
+  max-width: 600px;
+  width: 100%;
+}
+
+@media screen and (min-width: 480px) {
+  .site-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+  }
+}

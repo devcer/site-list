@@ -1,1 +1,23 @@
-<p>sites-list works!</p>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span style="margin: 0 auto;">Sites</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-progress-bar mode="indeterminate" color="primary" *ngIf="showProgressBar"></mat-progress-bar>
+<mat-list>
+  <mat-list-item
+    *ngFor="let site of sitesData"
+    style="border-bottom: 1px solid #2f3232"
+    (click)="goToSite(site.id)"
+  >
+    <img matListAvatar [src]="site.images[0]" [alt]="site.title" />
+    <h3 matLine>{{ site.title }}</h3>
+    <p matLine>{{ site.address.state + ", " + site.address.country }}</p>
+    <p matLine>
+      {{ site.contacts.main.firstName + " " + site.contacts.main.lastName }}
+    </p>
+    <button mat-icon-button>
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>
