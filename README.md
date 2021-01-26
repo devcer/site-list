@@ -5,9 +5,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Running this project
 
 * Clone this project
-* Change to the project director
+* Change to the project directory
 * Install npm packages `npm install`
-* Run the Dev Server `npm run start` (If you have angular CLI installed then you can run `ng serve`)
+* Run the Dev Server using `npm run start` (If you have angular CLI installed then you can use `ng serve`)
+
+## Project Structure
+
+* `src/app/models` - Data models are defined here. eg: User, Address
+* `src/app/modules` - This app is enabled with lazyloading. You should modularize your application to enable lazy loading for your modules. You can define your modules here.
+* `src/app/pages` - Pages for your app
+* `src/app/services` - This folder has services. Eg: SiteService to communicate using HTTP to get the site data.
 
 ## Development server
 
