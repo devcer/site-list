@@ -4,58 +4,40 @@
       <mat-icon mat-list-icon class="font-white">arrow_back_ios</mat-icon>
       <img
         matListAvatar
-        [src]="siteDetails.images[0]"
-        [alt]="siteDetails.title"
+        [src]="siteDetails.imgSrc"
+        [alt]="siteDetails.siteName"
       />
-      <h3 matLine class="font-white">{{ siteDetails.title }}</h3>
+      <h3 matLine class="font-white">{{ siteDetails.siteName }}</h3>
       <p matLine>
-        {{ siteDetails.address.state + ", " + siteDetails.address.country }}
+        {{ siteDetails.shortAddress }}
       </p>
       <p matLine>
-        {{
-          siteDetails.contacts.main.firstName +
-            " " +
-            siteDetails.contacts.main.lastName
-        }}
+        {{ siteDetails.mainContact }}
       </p>
     </mat-list-item>
   </mat-list>
   <div class="site-container">
-    <img [src]="siteDetails.images[0]" class="cover-photo" />
+    <img [src]="siteDetails.imgSrc" class="cover-photo" />
     <mat-list>
       <mat-list-item>
         <mat-icon mat-list-icon>person</mat-icon>
         <h3 mat-line>
-          {{
-            siteDetails.contacts.main.firstName +
-              " " +
-              siteDetails.contacts.main.lastName
-          }}
+          {{ siteDetails.mainContact }}
         </h3>
-        <p mat-line>{{ siteDetails.contacts.main.jobTitle }}</p>
+        <p mat-line>{{ siteDetails.jobTitle }}</p>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>phone</mat-icon>
-        <h3 mat-line>{{ siteDetails.contacts.main.phoneNumber }}</h3>
+        <h3 mat-line>{{ siteDetails.phoneNumber }}</h3>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>email</mat-icon>
-        <h3 mat-line>{{ siteDetails.contacts.main.email }}</h3>
+        <h3 mat-line>{{ siteDetails.email }}</h3>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>place</mat-icon>
         <p class="padding-left-16">
-          {{
-            siteDetails.address.street +
-              ", " +
-              siteDetails.address.city +
-              ", " +
-              siteDetails.address.state +
-              ", " +
-              siteDetails.address.country +
-              " - " +
-              siteDetails.address.zipCode
-          }}
+          {{ siteDetails.fullAddress }}
         </p>
       </mat-list-item>
     </mat-list>
