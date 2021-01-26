@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ISite } from 'src/app/models/site';
+import { User } from 'src/app/models/user';
 import { AlertService } from 'src/app/services/alert/alert.service';
 import { SitesService } from 'src/app/services/sites/sites.service';
 
@@ -7,7 +9,6 @@ import { SitesService } from 'src/app/services/sites/sites.service';
   selector: 'app-sites-list',
   templateUrl: './sites-list.component.html',
   styleUrls: ['./sites-list.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SitesListComponent implements OnInit {
   sitesData: ISite[] = [];
@@ -26,8 +27,7 @@ export class SitesListComponent implements OnInit {
             id: site.id,
             imgSrc: site.images[0],
             siteName: site.title,
-            shortAddress: `${site.address.state}, ${site.address.country}`,
-            mainContact: `${site.contacts.main.firstName} ${site.contacts.main.lastName}`,
+            mainContact: new User().deserialize(site.contacts.main),
           };
         });
         console.log(this.sitesData);
@@ -42,24 +42,4 @@ export class SitesListComponent implements OnInit {
   goToSite(siteId: string): void {
     this.router.navigateByUrl(`sites/${siteId}`);
   }
-}
-
-export interface ISite {
-  id: string;
-  imgSrc: string;
-  siteName: string;
-  shortAddress: string;
-  fullAddress: string;
-  mainContact: string;
-}
-export interface ISiteDetails {
-  id: string;
-  imgSrc: string;
-  siteName: string;
-  email: string;
-  phoneNumber: string;
-  jobTitle: string;
-  shortAddress: string;
-  fullAddress: string;
-  mainContact: string;
 }

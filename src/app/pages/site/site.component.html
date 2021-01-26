@@ -9,10 +9,10 @@
       />
       <h3 matLine class="font-white">{{ siteDetails.siteName }}</h3>
       <p matLine>
-        {{ siteDetails.shortAddress }}
+        {{ siteDetails.mainContact.address.getShortAddress() }}
       </p>
       <p matLine>
-        {{ siteDetails.mainContact }}
+        {{ siteDetails.mainContact.getFullName() }}
       </p>
     </mat-list-item>
   </mat-list>
@@ -22,22 +22,22 @@
       <mat-list-item>
         <mat-icon mat-list-icon>person</mat-icon>
         <h3 mat-line>
-          {{ siteDetails.mainContact }}
+          {{ siteDetails.mainContact.getFullName() }}
         </h3>
-        <p mat-line>{{ siteDetails.jobTitle }}</p>
+        <p mat-line>{{ siteDetails.mainContact.jobTitle }}</p>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>phone</mat-icon>
-        <h3 mat-line>{{ siteDetails.phoneNumber }}</h3>
+        <h3 mat-line>{{ siteDetails.mainContact.phoneNumber }}</h3>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>email</mat-icon>
-        <h3 mat-line>{{ siteDetails.email }}</h3>
+        <h3 mat-line>{{ siteDetails.mainContact.email }}</h3>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>place</mat-icon>
         <p class="padding-left-16">
-          {{ siteDetails.fullAddress }}
+          {{ siteDetails.mainContact.address.getFullAddress() }}
         </p>
       </mat-list-item>
     </mat-list>

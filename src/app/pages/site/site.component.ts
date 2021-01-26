@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ISite } from 'src/app/models/site';
+import { User } from 'src/app/models/user';
 import { AlertService } from 'src/app/services/alert/alert.service';
 import { SitesService } from 'src/app/services/sites/sites.service';
-import { ISiteDetails } from '../sites-list/sites-list.component';
 
 @Component({
   selector: 'app-site',
@@ -11,17 +12,7 @@ import { ISiteDetails } from '../sites-list/sites-list.component';
 })
 export class SiteComponent implements OnInit {
   siteId = '';
-  siteDetails: ISiteDetails = {
-    id: '',
-    imgSrc: '',
-    siteName: '',
-    email: '',
-    phoneNumber: '',
-    jobTitle: '',
-    shortAddress: '',
-    fullAddress: '',
-    mainContact: '',
-  };
+  siteDetails: ISite;
   showDetailSection = false;
   showProgressBar = true;
   constructor(
@@ -40,12 +31,7 @@ export class SiteComponent implements OnInit {
           id: data.id,
           imgSrc: data.images[0],
           siteName: data.title,
-          email: data.contacts.main.email,
-          phoneNumber: data.contacts.main.phoneNumber,
-          jobTitle: data.contacts.main.jobTitle,
-          shortAddress: `${data.address.state}, ${data.address.country}`,
-          fullAddress: `${data.address.street}, ${data.address.city}, ${data.address.state}, ${data.address.country} - ${data.address.zipCode}`,
-          mainContact: `${data.contacts.main.firstName} ${data.contacts.main.lastName}`,
+          mainContact: new User().deserialize(data.contacts.main),
         };
         this.showDetailSection = true;
       },
