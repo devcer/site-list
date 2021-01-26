@@ -8,20 +8,22 @@
   color="primary"
   *ngIf="showProgressBar"
 ></mat-progress-bar>
-<mat-list>
-  <mat-list-item
-    *ngFor="let site of sitesData"
-    style="border-bottom: 1px solid #2f3232"
-    (click)="goToSite(site.id)"
-  >
-    <img matListAvatar [src]="site.imgSrc" [alt]="site.siteName" />
-    <h3 matLine>{{ site.siteName }}</h3>
-    <p matLine>{{ site.shortAddress }}</p>
-    <p matLine>
-      {{ site.mainContact }}
-    </p>
-    <button mat-icon-button>
-      <mat-icon>arrow_forward_ios</mat-icon>
-    </button>
-  </mat-list-item>
-</mat-list>
+<cdk-virtual-scroll-viewport itemSize="88" class="scroller-viewport">
+  <mat-list>
+    <mat-list-item
+      *cdkVirtualFor="let site of sitesData"
+      class="list-item-border"
+      (click)="goToSite(site.id)"
+    >
+      <img matListAvatar [src]="site.imgSrc" [alt]="site.siteName" />
+      <h3 matLine>{{ site.siteName }}</h3>
+      <p matLine>{{ site.shortAddress }}</p>
+      <p matLine>
+        {{ site.mainContact }}
+      </p>
+      <button mat-icon-button>
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</cdk-virtual-scroll-viewport>

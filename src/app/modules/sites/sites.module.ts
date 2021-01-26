@@ -8,7 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
 @NgModule({
   declarations: [SitesListComponent, SiteComponent],
   imports: [
@@ -19,6 +19,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatButtonModule,
     MatToolbarModule,
     MatProgressBarModule,
+    ScrollingModule,
   ],
 })
 export class SitesModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert/alert.service';
 import { SitesService } from 'src/app/services/sites/sites.service';
@@ -7,6 +7,7 @@ import { SitesService } from 'src/app/services/sites/sites.service';
   selector: 'app-sites-list',
   templateUrl: './sites-list.component.html',
   styleUrls: ['./sites-list.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SitesListComponent implements OnInit {
   sitesData: ISite[] = [];
